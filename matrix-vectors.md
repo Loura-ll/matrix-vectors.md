@@ -439,9 +439,6 @@ has a non-zero solution, and therefore $A$ is not invertible.
 
 # Mind Map
 
-## Mind Map
-
-## Mind Map
 
 ```mermaid
 flowchart TD
