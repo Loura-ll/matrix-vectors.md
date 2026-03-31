@@ -398,7 +398,7 @@ To determine whether $A$ is invertible and, if so, to find $A^{-1}$:
 4. If $R\ne I_n$, then $A$ is not invertible
 
 > **Key check.**  
-> 看 RREF 左边是不是单位阵。
+> 看 RREF 左边是不是单位矩阵。
 
 ### Why does this work?
 If
@@ -439,49 +439,60 @@ has a non-zero solution, and therefore $A$ is not invertible.
 
 # Mind Map
 
+## Mind Map
+
+## Mind Map
+
 ```mermaid
-mindmap
-  root((Matrices and Vectors))
-    Definitions
-      Matrix
-      Row vector
-      Column vector
-      Addition
-      Scalar multiplication
-    Matrix Multiplication
-      AB defined when inner sizes match
-      A x as linear combination
-      Columns of product
-      Rows of product
-      Associative not commutative
-    Transpose
-      Rows become columns
-      Addition rule
-      Scalar rule
-      "(AB)^T = B^T A^T"
-    Identity and Zero
-      Zero matrix
-      Zero vector
-      Identity matrix
-      "AI = A"
-      "IA = A"
-    Linear Systems
-      Augmented matrix
-      Row operations
-      RREF
-      Pivot variables
-      Free variables
-      No solution
-      Unique solution
-      Infinitely many solutions
-    Homogeneous Systems
-      "Ax = 0"
-      "n > m => non-zero solution exists"
-    Invertibility
-      Inverse matrix
-      Elementary matrices
-      Row operations as left multiplication
-      Product of elementary matrices
-      Invertible matrix equivalences
-      Find inverse by "(A | I)"
+flowchart TD
+    A[Matrices and Vectors]
+    A --> B[Definitions]
+    A --> C[Matrix Multiplication]
+    A --> D[Transpose]
+    A --> E[Identity and Zero]
+    A --> F[Linear Systems]
+    A --> G[Homogeneous Systems]
+    A --> H[Invertibility]
+
+    B --> B1[Matrix]
+    B --> B2[Row vector]
+    B --> B3[Column vector]
+    B --> B4[Addition]
+    B --> B5[Scalar multiplication]
+
+    C --> C1[Inner dimensions match]
+    C --> C2[Ax as linear combination]
+    C --> C3[Columns of product]
+    C --> C4[Rows of product]
+    C --> C5[Associative not commutative]
+
+    D --> D1[Rows become columns]
+    D --> D2[Addition rule]
+    D --> D3[Scalar rule]
+    D --> D4[AB transpose equals BT AT]
+
+    E --> E1[Zero matrix]
+    E --> E2[Zero vector]
+    E --> E3[Identity matrix]
+    E --> E4[AI equals A]
+    E --> E5[IA equals A]
+
+    F --> F1[Augmented matrix]
+    F --> F2[Row operations]
+    F --> F3[RREF]
+    F --> F4[Pivot variables]
+    F --> F5[Free variables]
+    F --> F6[No solution]
+    F --> F7[Unique solution]
+    F --> F8[Infinitely many solutions]
+
+    G --> G1[Ax equals 0]
+    G --> G2[n greater than m implies nonzero solution]
+
+    H --> H1[Inverse matrix]
+    H --> H2[Elementary matrices]
+    H --> H3[Row operations as left multiplication]
+    H --> H4[Product of elementary matrices]
+    H --> H5[Invertible matrix equivalences]
+    H --> H6[Find inverse by augmenting with I]
 ```
