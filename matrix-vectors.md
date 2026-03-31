@@ -1,20 +1,20 @@
-# Algebra 1 — Chapter 1: Matrices and Vectors
+# Algebra 1 - Chapter 1: Matrices and Vectors
 
 ## 1.1 Definitions
 
 ### Definition
-1. An $m \times n$ matrix is a rectangular array **of** numbers with $m$ rows and $n$ columns.
-2. A **row vector** is a $1 \times n$ matrix.
-3. A **column vector** is an $m \times 1$ matrix.
+1. An m x n matrix is a rectangular array of numbers with m rows and n columns.
+2. A row vector is a 1 x n matrix.
+3. A column vector is an m x 1 matrix.
 
 ### Matrix Addition and Scalar Multiplication
-Let $a,b$ be numbers, and let $A,B,C$ be $m \times n$ matrices. Then:
+Let a, b be numbers, and let A, B, C be m x n matrices. Then:
 
-1. $A+B=B+A$
-2. $A+(B+C)=(A+B)+C$
-3. $(a+b)A=aA+bA$
-4. $a(A+B)=aA+aB$
-5. $a(bA)=(ab)A$
+1. A + B = B + A
+2. A + (B + C) = (A + B) + C
+3. (a + b)A = aA + bA
+4. a(A + B) = aA + aB
+5. a(bA) = (ab)A
 
 > **Note.** These are the algebraic rules for matrix addition and scalar multiplication.
 
@@ -22,125 +22,117 @@ Let $a,b$ be numbers, and let $A,B,C$ be $m \times n$ matrices. Then:
 
 ## 1.2 Matrix Multiplication
 
-Let
-- $A=(a_{ij})$ be an $m \times n$ matrix,
-- $B=(b_{jk})$ be an $n \times p$ matrix.
+Let:
+- A = (a_ij) be an m x n matrix
+- B = (b_jk) be an n x p matrix
 
-Then the product $AB$ is defined and is an $m \times p$ matrix.
+Then the product AB is defined and is an m x p matrix.
 
 ### Matrix times a Column Vector
-Let
-$$
-\underline{x}=
-\begin{pmatrix}
-x_{11}\\
-\vdots\\
-x_{n1}
-\end{pmatrix}
-$$
-be an $n \times 1$ column vector, and let $\underline{c}_1,\dots,\underline{c}_n$ be the columns of $A$. Then
 
-$$
-A\underline{x}=\sum_{k=1}^n x_{k1}\,\underline{c}_k.
-$$
+Let x be an n x 1 column vector:
 
-In coordinates,
+```text
+x =
+[ x_11 ]
+[  ... ]
+[ x_n1 ]
+```
 
-$$
-A\underline{x}=
-\begin{pmatrix}
-\sum_{k=1}^n a_{1k}x_{k1}\\
-\sum_{k=1}^n a_{2k}x_{k1}\\
-\vdots\\
-\sum_{k=1}^n a_{mk}x_{k1}
-\end{pmatrix}
-=
-\begin{pmatrix}
-x_{11}a_{11}+x_{21}a_{12}+\dots+x_{n1}a_{1n}\\
-x_{11}a_{21}+x_{21}a_{22}+\dots+x_{n1}a_{2n}\\
-\vdots\\
-x_{11}a_{m1}+x_{21}a_{m2}+\dots+x_{n1}a_{mn}
-\end{pmatrix}.
-$$
+Let c_1, ..., c_n be the columns of A. Then:
 
-Also,
+```text
+Ax = sum from k = 1 to n of x_k1 c_k
+```
 
-$$
-A\underline{x}
-=
-\sum_{k=1}^n x_{k1}
-\begin{pmatrix}
-a_{1k}\\
-a_{2k}\\
-\vdots\\
-a_{mk}
-\end{pmatrix}.
-$$
+In coordinates:
 
-> **Note.** The vector $A\underline{x}$ is a **linear combination** of the columns of $A$.
+```text
+Ax =
+[ sum from k = 1 to n of a_1k x_k1 ]
+[ sum from k = 1 to n of a_2k x_k1 ]
+[                ...                ]
+[ sum from k = 1 to n of a_mk x_k1 ]
+```
+
+Also:
+
+```text
+Ax =
+sum from k = 1 to n of x_k1
+[ a_1k ]
+[ a_2k ]
+[  ... ]
+[ a_mk ]
+```
+
+> **Note.** The vector Ax is a **linear combination** of the columns of A.
 
 ### What is a linear combination?
-A **linear combination** of vectors $\underline{v}_1,\dots,\underline{v}_n$ is an expression of the form
+A **linear combination** of vectors v_1, ..., v_n is an expression of the form:
 
-$$
-a_1\underline{v}_1+a_2\underline{v}_2+\cdots+a_n\underline{v}_n,
-$$
+```text
+a_1 v_1 + a_2 v_2 + ... + a_n v_n
+```
 
-where $a_1,\dots,a_n$ are scalars.
+where a_1, ..., a_n are scalars.
 
-So $A\underline{x}$ means:  
-**take the columns of $A$ and combine them using the entries of $\underline{x}$ as coefficients.**
+So Ax means:
+
+**take the columns of A and combine them using the entries of x as coefficients.**
 
 ---
 
 ## 1.5 Theorem
 
-Let $A$ be an $m \times n$ matrix and $B$ an $n \times p$ matrix. Let $\underline{r}_i$ be the $i$-th row of $A$, and let $\underline{c}_j$ be the $j$-th column of $B$.
+Let A be an m x n matrix and B an n x p matrix. Let r_i be the i-th row of A, and let c_j be the j-th column of B.
 
-1. The $j$-th column of $AB$ equals $A\underline{c}_j$.
-2. The $i$-th row of $AB$ equals $\underline{r}_i B$.
+1. The j-th column of AB equals A c_j.
+2. The i-th row of AB equals r_i B.
 
 > **Interpretation.**
-> - Product columns come from multiplying $A$ by columns of $B$.
-> - Product rows come from multiplying rows of $A$ by $B$.
+> - Product columns come from multiplying A by columns of B.
+> - Product rows come from multiplying rows of A by B.
 
 ---
 
 ## 1.17 Theorem: Algebraic Rules of Matrix Multiplication
 
-Let $a$ be a number. Let $A,A'$ be $m \times n$ matrices, $B,B'$ be $n \times p$ matrices, and $C$ be a $p \times q$ matrix. Then:
+Let a be a number. Let A, A' be m x n matrices, B, B' be n x p matrices, and C be a p x q matrix. Then:
 
-1. $A(B+B')=AB+AB'$
-2. $(A+A')B=AB+A'B$
-3. $(aA)B=a(AB)=A(aB)$
-4. $A(BC)=(AB)C$
+1. A(B + B') = AB + AB'
+2. (A + A')B = AB + A'B
+3. (aA)B = a(AB) = A(aB)
+4. A(BC) = (AB)C
 
 > **Important.** Matrix multiplication is **associative**, but in general it is **not commutative**:
-> $$
-> AB \ne BA
-> $$
-> in general.
+>
+> ```text
+> AB != BA
+> ```
 
 ---
 
 ## 1.4 Transpose
 
 ### Definition
-Let $A$ be an $m \times n$ matrix. The **transpose** of $A$ is denoted by $A^\top$.
+Let A be an m x n matrix. The **transpose** of A is denoted by A^T.
 
-It is the $n \times m$ matrix obtained by turning rows into columns.
+It is the n x m matrix obtained by turning rows into columns.
 
 ### 1.20 Theorem
-Let $A,A'$ be $m \times n$ matrices, let $B$ be $n \times p$, and let $a$ be a number. Then:
+Let A, A' be m x n matrices, let B be n x p, and let a be a number. Then:
 
-1. $(A+A')^\top=A^\top+(A')^\top$
-2. $(aA)^\top=a(A^\top)$
-3. $(AB)^\top=B^\top A^\top$
+1. (A + A')^T = A^T + (A')^T
+2. (aA)^T = a(A^T)
+3. (AB)^T = B^T A^T
 
-> **Key identity.**  
-> $$
-> (AB)^\top=B^\top A^\top
-> $$
+> **Key identity.**
+>
+> ```text
+> (AB)^T = B^T A^T
+> ```
+>
 > The order reverses.
 
 ---
@@ -149,16 +141,17 @@ Let $A,A'$ be $m \times n$ matrices, let $B$ be $n \times p$, and let $a$ be a n
 
 ### 1.22 Definition
 
-1. $O_{m\times n}$ is the $m \times n$ matrix with all entries equal to $0$.
-2. The zero vector $O_n$ is the height-$n$ column vector with all entries equal to $0$. We often write simply $O$ when the size is clear from context.
-3. The identity matrix $I_n$ is the $n \times n$ matrix with $1$'s on the diagonal and $0$'s elsewhere.
+1. O_(m x n) is the m x n matrix with all entries equal to 0.
+2. The zero vector O_n is the height-n column vector with all entries equal to 0. We often write simply O when the size is clear from context.
+3. The identity matrix I_n is the n x n matrix with 1's on the diagonal and 0's elsewhere.
 
 ### Theorem
-If $A$ is an $m \times n$ matrix, then
+If A is an m x n matrix, then:
 
-$$
-AI_n=A, \qquad I_mA=A.
-$$
+```text
+A I_n = A
+I_m A = A
+```
 
 > **Note.**
 > - Right multiplication by the identity does nothing.
@@ -169,19 +162,13 @@ $$
 
 # Linear Systems
 
-A linear system in variables $x_1,\dots,x_n$ has the form
+A linear system in variables x_1, ..., x_n has the form:
 
-$$
-a_{11}x_1+a_{12}x_2+\dots+a_{1n}x_n=b_1
-$$
-
-$$
-\vdots
-$$
-
-$$
-a_{m1}x_1+a_{m2}x_2+\dots+a_{mn}x_n=b_m.
-$$
+```text
+a_11 x_1 + a_12 x_2 + ... + a_1n x_n = b_1
+...
+a_m1 x_1 + a_m2 x_2 + ... + a_mn x_n = b_m
+```
 
 ---
 
@@ -189,9 +176,9 @@ $$
 
 The elementary row operations are:
 
-1. Swap row $i$ and row $j$
-2. Multiply row $i$ by a non-zero scalar
-3. Add $k$ times row $i$ to row $j$
+1. Swap row i and row j
+2. Multiply row i by a non-zero scalar
+3. Add k times row i to row j
 
 These operations are used to simplify a matrix while preserving the solution set of the corresponding linear system.
 
@@ -201,10 +188,10 @@ These operations are used to simplify a matrix while preserving the solution set
 
 A matrix is in **RREF** if:
 
-1. All leading entries are $1$
+1. All leading entries are 1
 2. Every all-zero row is at the bottom
-3. All entries in the same column as a leading entry are $0$
-4. If rows $i$ and $i+1$ both have leading entries, then the leading entry in row $i+1$ is to the right of the leading entry in row $i$
+3. All entries in the same column as a leading entry are 0
+4. If rows i and i + 1 both have leading entries, then the leading entry in row i + 1 is to the right of the leading entry in row i
 
 ---
 
@@ -216,41 +203,42 @@ When solving a system by row reduction:
 If the final column of the augmented matrix has a leading entry, then the system has **no solution**.
 
 ### Free variables
-Variables whose columns do **not** contain leading entries are called **free variables**.  
+Variables whose columns do **not** contain leading entries are called **free variables**.
+
 They can be chosen freely.
 
 ### Pivot variables
-The remaining variables are determined by the free variables. These are usually called **pivot variables** (or leading variables).
+The remaining variables are determined by the free variables. These are usually called **pivot variables** or **leading variables**.
 
 ### Three possible cases for the number of solutions
 
-1. **The last column has a pivot** $\Rightarrow$ **no solution**
-2. **At least one free variable** $\Rightarrow$ **infinitely many solutions**
-3. **No free variables** $\Rightarrow$ **a unique solution**
+1. **The last column has a pivot** -> **no solution**
+2. **At least one free variable** -> **infinitely many solutions**
+3. **No free variables** -> **a unique solution**
 
 > **Summary format for solutions**
 >
-> - express the pivot variables in terms of the free variables;
-> - if there is no solution, explicitly state **no solution**.
+> - express the pivot variables in terms of the free variables
+> - if there is no solution, explicitly state **no solution**
 
 ---
 
 ## 1.39 Theorem
 
-If $A$ is an $m \times n$ matrix and $n>m$, then
+If A is an m x n matrix and n > m, then:
 
-$$
-A\underline{x}=\underline{0}
-$$
+```text
+Ax = 0
+```
 
 has a non-zero solution.
 
-> **Chinese note.** 若列数大于行数，则 $A\underline{x}=\underline{0}$ 必有非零解。
+> **Chinese note.** 若列数大于行数，则 Ax = 0 必有非零解。
 
 ### Proof
-Perform row operations on the augmented matrix $(A\mid \underline{0})$ to obtain its RREF.
+Perform row operations on the augmented matrix (A | 0) to obtain its RREF.
 
-An RREF matrix has at most one leading entry in each of its $m$ rows. Since $n>m$, there are more columns than rows, so at least one of the first $n$ columns has no leading entry. Therefore the corresponding variable is a free variable. Hence there are solutions in which that variable is non-zero, so the homogeneous system has a non-zero solution.
+An RREF matrix has at most one leading entry in each of its m rows. Since n > m, there are more columns than rows, so at least one of the first n columns has no leading entry. Therefore the corresponding variable is a free variable. Hence there are solutions in which that variable is non-zero, so the homogeneous system has a non-zero solution.
 
 ---
 
@@ -258,23 +246,29 @@ An RREF matrix has at most one leading entry in each of its $m$ rows. Since $n>m
 
 ## 1.41 Definition
 
-An $n \times n$ matrix $A$ is **invertible** if there exists an $n \times n$ matrix $B$ such that
+An n x n matrix A is **invertible** if there exists an n x n matrix B such that:
 
-$$
-AB=BA=I_n.
-$$
+```text
+AB = BA = I_n
+```
 
-We denote $B=A^{-1}$, so
+We denote B = A^(-1), so:
 
-$$
-AA^{-1}=A^{-1}A=I_n.
-$$
+```text
+A A^(-1) = A^(-1) A = I_n
+```
 
-If $A\underline{x}=\underline{b}$ and $A$ is invertible, then
+If:
 
-$$
-\underline{x}=A^{-1}\underline{b}.
-$$
+```text
+Ax = b
+```
+
+and A is invertible, then:
+
+```text
+x = A^(-1) b
+```
 
 ---
 
@@ -288,14 +282,14 @@ An **elementary matrix** is a matrix obtained by performing **one row operation*
 
 ## 1.43 Theorem
 
-Let $r$ be a row operation and let $A$ be an $n \times n$ matrix. Then
+Let r be a row operation and let A be an n x n matrix. Then:
 
-$$
-r(A)=r(I_n)A.
-$$
+```text
+r(A) = r(I_n) A
+```
 
-> **Interpretation.**  
-> Performing a row operation on $A$ is the same as left-multiplying $A$ by the corresponding elementary matrix.
+> **Interpretation.**
+> Performing a row operation on A is the same as left-multiplying A by the corresponding elementary matrix.
 
 ---
 
@@ -303,40 +297,48 @@ $$
 
 Any invertible matrix can be written as a product of elementary matrices.
 
-Suppose
-$$
-E_k\cdots E_2E_1A=I_n.
-$$
-Then
-$$
-A=E_1^{-1}E_2^{-1}\cdots E_k^{-1}.
-$$
+Suppose:
 
-Since the inverse of an elementary matrix is again elementary, this shows that $A$ is a product of elementary matrices.
+```text
+E_k ... E_2 E_1 A = I_n
+```
+
+Then:
+
+```text
+A = E_1^(-1) E_2^(-1) ... E_k^(-1)
+```
+
+Since the inverse of an elementary matrix is again elementary, this shows that A is a product of elementary matrices.
 
 ---
 
 ## 1.46 Theorem
 
-Row operations preserve the solution set of
-$$
-A\underline{x}=\underline{b}.
-$$
+Row operations preserve the solution set of:
+
+```text
+Ax = b
+```
 
 ### Proof
-By Theorem 1.43,
-$$
-(A\mid \underline{b}) \mapsto E(A\mid \underline{b})=(EA\mid E\underline{b}).
-$$
+By Theorem 1.43:
 
-If
-$$
-A\underline{y}=\underline{b},
-$$
-then multiplying both sides by $E$ gives
-$$
-EA\underline{y}=E\underline{b}.
-$$
+```text
+(A | b) -> E(A | b) = (EA | Eb)
+```
+
+If:
+
+```text
+Ay = b
+```
+
+then multiplying both sides by E gives:
+
+```text
+EAy = Eb
+```
 
 So the transformed system has the same solutions.
 
@@ -344,81 +346,102 @@ So the transformed system has the same solutions.
 
 # Invertible Matrix Equivalences
 
-For an $n \times n$ matrix $A$, the following are equivalent:
+For an n x n matrix A, the following are equivalent:
 
-1. $A$ is invertible
-2. The only solution to $A\underline{x}=\underline{0}$ is $\underline{x}=\underline{0}$
-3. There is a sequence of row operations taking $A$ to $I_n$
+1. A is invertible
+2. The only solution to Ax = 0 is x = 0
+3. There is a sequence of row operations taking A to I_n
 
 ### Proof
 
-#### (1) $\Rightarrow$ (2)
-If $A$ is invertible and
-$$
-A\underline{x}=\underline{0},
-$$
-then multiplying by $A^{-1}$ gives
-$$
-\underline{x}=A^{-1}\underline{0}=\underline{0}.
-$$
+#### (1) -> (2)
+If A is invertible and:
 
-#### (2) $\Rightarrow$ (3)
-If the homogeneous system has only the trivial solution, then there are no free variables. Hence every column of the RREF of $A$ has a leading entry, so the RREF must be $I_n$.
+```text
+Ax = 0
+```
 
-#### (3) $\Rightarrow$ (1)
-If there exists a sequence of row operations taking $A$ to $I_n$, then there exists an invertible matrix $E$ such that
-$$
-EA=I_n.
-$$
-Hence
-$$
-A=E^{-1},
-$$
-so $A$ is invertible.
+then multiplying by A^(-1) gives:
+
+```text
+x = A^(-1) 0 = 0
+```
+
+#### (2) -> (3)
+If the homogeneous system has only the trivial solution, then there are no free variables. Hence every column of the RREF of A has a leading entry, so the RREF must be I_n.
+
+#### (3) -> (1)
+If there exists a sequence of row operations taking A to I_n, then there exists an invertible matrix E such that:
+
+```text
+EA = I_n
+```
+
+Hence:
+
+```text
+A = E^(-1)
+```
+
+so A is invertible.
 
 ---
 
-# How to Find $A^{-1}$
+# How to Find A^(-1)
 
-To determine whether $A$ is invertible and, if so, to find $A^{-1}$:
+To determine whether A is invertible and, if so, to find A^(-1):
 
 1. Form the augmented matrix
-   $$
-   (A\mid I_n)
-   $$
-2. Perform row operations to obtain
-   $$
-   (R\mid S)
-   $$
-   where $R$ is in RREF
-3. If $R=I_n$, then $A$ is invertible and
-   $$
-   A^{-1}=S
-   $$
-4. If $R\ne I_n$, then $A$ is not invertible
 
-> **Key check.**  
+   ```text
+   (A | I_n)
+   ```
+
+2. Perform row operations to obtain
+
+   ```text
+   (R | S)
+   ```
+
+   where R is in RREF
+
+3. If R = I_n, then A is invertible and
+
+   ```text
+   A^(-1) = S
+   ```
+
+4. If R != I_n, then A is not invertible
+
+> **Key check.**
 > 看 RREF 左边是不是单位矩阵。
 
 ### Why does this work?
-If
-$$
-E(A\mid I_n)=(I_n\mid S),
-$$
-then
-$$
-EA=I_n.
-$$
-So $E=A^{-1}$, and therefore
-$$
-S=A^{-1}.
-$$
+If:
 
-If $R\ne I_n$, then $R$ has fewer than $n$ leading entries, so there is a free variable. Thus the homogeneous system
-$$
-A\underline{x}=\underline{0}
-$$
-has a non-zero solution, and therefore $A$ is not invertible.
+```text
+E(A | I_n) = (I_n | S)
+```
+
+then:
+
+```text
+EA = I_n
+```
+
+So E = A^(-1), and therefore:
+
+```text
+S = A^(-1)
+```
+
+If R != I_n, then R has fewer than n leading entries, so there is a free variable. Thus the homogeneous system:
+
+```text
+Ax = 0
+```
+
+has a non-zero solution, and therefore A is not invertible.
 
 ---
 
@@ -431,60 +454,60 @@ has a non-zero solution, and therefore $A$ is not invertible.
 - RREF helps solve linear systems.
 - Free variables determine whether solutions are unique or infinite.
 - For square matrices, invertibility is tied to:
-  - no free variables in $A\underline{x}=\underline{0}$,
-  - row reduction to $I_n$,
-  - existence of $A^{-1}$.
+  - no free variables in Ax = 0
+  - row reduction to I_n
+  - existence of A^(-1)
 
 ---
 
 # Mind Map
 
+## Outline Version
 
-```mermaid
-flowchart TD
-    A[Matrices and Vectors]
-    A --> B[Definitions]
-    A --> C[Matrix Multiplication]
-    A --> D[Transpose]
-    A --> E[Identity and Zero]
-    A --> F[Linear Systems]
-    A --> G[Homogeneous Systems]
-    A --> H[Invertibility]
+- Matrices and Vectors
+  - Definitions
+    - Matrix
+    - Row vector
+    - Column vector
+    - Addition
+    - Scalar multiplication
+  - Matrix Multiplication
+    - Inner dimensions match
+    - Ax as linear combination
+    - Columns of product
+    - Rows of product
+    - Associative not commutative
+  - Transpose
+    - Rows become columns
+    - Addition rule
+    - Scalar rule
+    - (AB)^T = B^T A^T
+  - Identity and Zero
+    - Zero matrix
+    - Zero vector
+    - Identity matrix
+    - AI_n = A
+    - I_mA = A
+  - Linear Systems
+    - Augmented matrix
+    - Row operations
+    - RREF
+    - Pivot variables
+    - Free variables
+    - No solution
+    - Unique solution
+    - Infinitely many solutions
+  - Homogeneous Systems
+    - Ax = 0
+    - n > m implies non-zero solution
+  - Invertibility
+    - Inverse matrix
+    - Elementary matrices
+    - Row operations as left multiplication
+    - Product of elementary matrices
+    - Invertible matrix equivalences
+    - Find inverse by augmenting with I
 
-    B --> B1[Matrix]
-    B --> B2[Row vector]
-    B --> B3[Column vector]
-    B --> B4[Addition]
-    B --> B5[Scalar multiplication]
-
-    C --> C1[Inner dimensions match]
-    C --> C2[Ax as linear combination]
-    C --> C3[Columns of product]
-    C --> C4[Rows of product]
-    C --> C5[Associative not commutative]
-
-    D --> D1[Rows become columns]
-    D --> D2[Addition rule]
-    D --> D3[Scalar rule]
-    D --> D4[AB transpose equals BT AT]
-
-    E --> E1[Zero matrix]
-    E --> E2[Zero vector]
-    E --> E3[Identity matrix]
-    E --> E4[AI equals A]
-    E --> E5[IA equals A]
-
-    F --> F1[Augmented matrix]
-    F --> F2[Row operations]
-    F --> F3[RREF]
-    F --> F4[Pivot variables]
-    F --> F5[Free variables]
-    F --> F6[No solution]
-    F --> F7[Unique solution]
-    F --> F8[Infinitely many solutions]
-
-    G --> G1[Ax equals 0]
-    G --> G2[n greater than m implies nonzero solution]
 
     H --> H1[Inverse matrix]
     H --> H2[Elementary matrices]
